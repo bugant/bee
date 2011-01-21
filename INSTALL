@@ -1,0 +1,10 @@
+#
+#To compile and install:
+
+make clean
+make
+make lib
+sudo make install
+
+#have fun!
+#:)
