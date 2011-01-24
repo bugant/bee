@@ -1,0 +1,64 @@
+bee is a library that gives a simple and easy-to-use API to access PKCS#11 devices, allowing you to use
+the function implemented in a PKCS#11 module.
+
+The library offers a set of C functions which let you write your program in a more readable and elegant
+way: you do not need to know all the details of the PKCS#11 standard, the session management is automatically
+handled by the library in a transparent way and also you do not need to store a pointer to the functions exported
+by the module. Moreover, it also gives an object-oriented abstraction suitable to build binding to host the library
+in other (object-oriented) languages.
+
+The following program demonstrate how easy it is to login to a PKCS#11 device and list all the objects stored
+inside it using bee.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <bee.h>
+
+
+int main()
+{
+    bee b;
+    CK_OBJECT_HANDLE key, *search;
+    CK_ULONG how_many;
+    attrs my_attrs, a;
+    int j;
+
+    if (init("libopencryptoki.so", "12345", &b) != CKR_OK)
+    {
+        printf("too bad: cannot init my bee!\n");
+        return 1;
+    }
+
+    init_attrs(&my_attrs);
+    if (find_objects(b, my_attrs, &search, &how_many) != CKR_OK)
+    {
+        printf("failed while searching for 'foo'\n");
+        return 1;
+    }
+
+    init_attrs(&a);
+    add_attribute(&a, CKA_LABEL, NULL_PTR, 0);
+
+    printf("found %lu object(s)\n", how_many);
+    if (how_many > 0)
+    {
+        for (j = 0; j < how_many; j++)
+        {
+            printf("%d: ", j);
+            if (get_attrs(b, search[j], a) != CKR_OK)
+                printf("cannot get label for this object\n");
+            else
+            {
+                printf("%s\n", (CK_CHAR *) a.as[0].pValue);
+                free(a.as[0].pValue);
+            }
+
+            a.as[0].pValue = NULL_PTR;
+            a.as[0].ulValueLen = 0;
+        }
+    }
+
+    logout(&b);
+    return 0;
+}
