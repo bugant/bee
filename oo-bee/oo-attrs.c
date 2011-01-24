@@ -623,3 +623,83 @@ void bee_set_private_exponent(void *a, const char *v, long len)
 {
     bee_set_attr_value(a, CKA_PRIVATE_EXPONENT, (CK_VOID_PTR) v, (CK_ULONG) len);
 }
+
+/* CKA_PRIME_1 */
+void bee_add_prime_1(void *a)
+{
+    bee_add_empty_attr(a, CKA_PRIME_1);
+}
+
+const char* bee_get_prime_1(void *a, long *len)
+{
+    return (const char*) (bee_get_attr_value(a, CKA_PRIME_1, len));
+}
+
+void bee_set_prime_1(void *a, const char *v, long len)
+{
+    bee_set_attr_value(a, CKA_PRIME_1, (CK_VOID_PTR) v, (CK_ULONG) len);
+}
+
+/* CKA_PRIME_2 */
+void bee_add_prime_2(void *a)
+{
+    bee_add_empty_attr(a, CKA_PRIME_2);
+}
+
+const char* bee_get_prime_2(void *a, long *len)
+{
+    return (const char*) (bee_get_attr_value(a, CKA_PRIME_2, len));
+}
+
+void bee_set_prime_2(void *a, const char *v, long len)
+{
+    bee_set_attr_value(a, CKA_PRIME_2, (CK_VOID_PTR) v, (CK_ULONG) len);
+}
+
+/* CKA_EXPONENT_1 */
+void bee_add_prime1(void *a)
+{
+    bee_add_empty_attr(a, CKA_EXPONENT_1);
+}
+
+const char* bee_get_exponent_1(void *a, long *len)
+{
+    return (const char*) (bee_get_attr_value(a, CKA_EXPONENT_1, len));
+}
+
+void bee_set_exponent_1(void *a, const char *v, long len)
+{
+    bee_set_attr_value(a, CKA_EXPONENT_1, (CK_VOID_PTR) v, (CK_ULONG) len);
+}
+
+/* CKA_EXPONENT_2 */
+void bee_add_exponent_2(void *a)
+{
+    bee_add_empty_attr(a, CKA_EXPONENT_2);
+}
+
+const char* bee_get_exponent_2(void *a, long *len)
+{
+    return (const char*) (bee_get_attr_value(a, CKA_EXPONENT_2, len));
+}
+
+void bee_set_exponent_2(void *a, const char *v, long len)
+{
+    bee_set_attr_value(a, CKA_EXPONENT_2, (CK_VOID_PTR) v, (CK_ULONG) len);
+}
+
+/* CKA_COEFFICIENT */
+void bee_add_coefficient(void *a)
+{
+    bee_add_empty_attr(a, CKA_COEFFICIENT);
+}
+
+const char* bee_get_coefficient(void *a, long *len)
+{
+    return (const char*) (bee_get_attr_value(a, CKA_COEFFICIENT, len));
+}
+
+void bee_set_coefficient(void *a, const char *v, long len)
+{
+    bee_set_attr_value(a, CKA_COEFFICIENT, (CK_VOID_PTR) v, (CK_ULONG) len);
+}

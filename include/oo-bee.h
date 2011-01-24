@@ -157,6 +157,26 @@ void bee_add_private_exponent(void*);
 const char* bee_get_private_exponent(void*, long*);
 void bee_set_private_exponent(void*, const char*, long);
 
+void bee_add_prime_1(void*);
+const char* bee_get_prime_1(void*, long*);
+void bee_set_prime_1(void*, const char*, long);
+
+void bee_add_prime_2(void*);
+const char* bee_get_prime_2(void*, long*);
+void bee_set_prime_2(void*, const char*, long);
+
+void bee_add_exponent_1(void*);
+const char* bee_get_exponent_1(void*, long*);
+void bee_set_exponent_1(void*, const char*, long);
+
+void bee_add_exponent_2(void*);
+const char* bee_get_exponent_2(void*, long*);
+void bee_set_exponent_2(void*, const char*, long);
+
+void bee_add_coefficient(void*);
+const char* bee_get_coefficient(void*, long*);
+void bee_set_coefficient(void*, const char*, long);
+
 /* General bee's funs -> oo-bee.c */
 void bee_free_mem(void*);
 long bee_get_last_error();
