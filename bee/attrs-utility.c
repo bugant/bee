@@ -178,8 +178,6 @@ void add_gen_key_attributes(attrs *as, CK_MECHANISM_PTR m)
     CK_KEY_TYPE *type;
     CK_ULONG *len;
     int found = 0;
-    char *bee_label;
-    CK_ATTRIBUTE_PTR label;
 
     class = (CK_OBJECT_CLASS *) malloc(sizeof(CK_OBJECT_CLASS));
     type = (CK_KEY_TYPE *) malloc(sizeof(CK_KEY_TYPE));
