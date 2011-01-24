@@ -24,7 +24,7 @@ int main()
     attrs my_attrs, a;
     int j;
 
-    if (init("libopencryptoki.so", "12345", &b) != CKR_OK)
+    if (init("/path/to/your/module", "12345", &b) != CKR_OK)
     {
         printf("too bad: cannot init my bee!\n");
         return 1;
