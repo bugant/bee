@@ -15,6 +15,7 @@ int main()
     CK_ULONG len = 1024;
     attrs pub_foo, priv_foo;
 
+    /* connect to opencryptoki using PIN 12345, set it as needed */
     if (init("libopencryptoki.so", "12345", &b) != CKR_OK)
     {
 	printf("too bad: cannot init my bee!\n");
